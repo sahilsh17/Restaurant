@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Orders</title>
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/orders.css" type="text/css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Italiana&family=Oxygen:wght@400;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/orderPage.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+  <body style="margin-top: 130px; background-color: #f5f5f5; background-image: url('https://www.transparenttextures.com/patterns/xv.png');">
+    <nav>
+      <%- include('partials/_header') %>
+    </nav>
+    <div class="response-container">
+      <section class="orderSummary">
+        <header class='section-heading'>
+        <div class="home-pic">
+        <p class="order-text">Your Order</p>
+        </div>
+        </header>
+
+        <% for (let item of summary) { %>
+          <% const unitPrice = Math.floor((item.orderItemTotal / item.quantity)*100)/100; %>
+          <form method="POST" action="/checkout" >
+        <article class=list-article>
+              <p><span class="quantity"><input name="send" type="number" class="qty" min="0" max="10" value="<%=item.quantity%>"></span>
+                <input name="id" type="hidden" value="<%=item.id%>">
+                <input name="price" type="hidden" value="<%=unitPrice%>">
+               <span><%=item.name%></span>
+               <span class="unit-price"><%=unitPrice%></span>
+               <span class="price"><%=item.orderItemTotal%></span>
+               <span id="price-amount">$</span>
+              </p>
+        </article>
+        <% } %>
+
+          <p class="order-text">Order total:</p>
+          <span>$</span><h2><%= total %></h2>
+          <br>
+          <button type ="submit" class="btn btn-dark" id="status-button">Update Order Quantity</button>
+        </form>
+        <footer>
+        <a href ="/menu"><button class="btn btn-dark" id="status-button">Back to Menu</button></a>
+          <a href ="/checkout"><button class="btn btn-dark" id="status-button">Checkout</button></a>
+        </footer>
+      </section>
+    </div>
+  </body>
+</html>

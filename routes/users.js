@@ -14,11 +14,13 @@ module.exports = (db) => {
       .then(data => {
         const users = data.rows;
         res.json({ users });
+        console.log(users);
       })
       .catch(err => {
         res
           .status(500)
           .json({ error: err.message });
+        console.log('im here');
       });
   });
   return router;

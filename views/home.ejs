@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Home Page</title>
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/home.css" types="text/css">
+    <link rel="stylesheet" href="/styles/nav.css" types="text/css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Italiana&family=Oxygen:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+  </head>
+
+  <body class="background-color: #f5f5f5;
+  background-image: url(https://www.transparenttextures.com/patterns/xv.png);">
+    <nav>
+      <%- include('partials/_header') %>
+    </nav>
+    <section>
+      <div class="home-pic">
+        <img src="img/mgg-vitchakorn-98Xi5vMGKck-unsplash.jpg" id="home-pic">
+      </div>
+      <div id="welcome-container">
+        <h1 id="welcome">BENVENUTO E MANGIA!</h1>
+        <h3 id="username">Hello <%= username %>!</h3>
+        <p id="welcome-message">Let's get started with your order!</p>
+        <form METHOD="POST" action="/home">
+          <button class="btn btn-dark">
+            Create Order
+          </button>
+        </form>
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-twitter"></a>
+        <a href="#" class="fa fa-google"></a>
+        <a href="#" class="fa fa-instagram"></a>
+        <a href="#" class="fa fa-pinterest"></a>
+      </div>
+    </section>
+  </body>
+</html>

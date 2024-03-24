@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Order status</title>
+    <meta http-equiv="refresh" content="5">
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/nav.css" types="text/css">
+    <link rel="stylesheet" href="/styles/loader.css" types="text/css">
+    <link rel="stylesheet" href="/styles/smsReceive.css" type="text/css"="text/css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Italiana&family=Oxygen:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+  </head>
+  <body style="margin-top: 130px; background-color: #f5f5f5; background-image: url('https://www.transparenttextures.com/patterns/xv.png');">
+    <nav>
+      <%- include('partials/_header') %>
+    </nav>
+
+      <section class="response-container">
+        <div>
+          <p>We are still awaiting a response from our kitchen! You will recieve an update with your order shortly!</p>
+          <a href ="/home"><button class="btn btn-dark" id="home-button">Back to home</button></a>
+        </div>
+      </section>
+
+    <div class="loader">
+      <h3 class="confirm-text">Mamma Mia's is confirming your order</h3>
+      <div>
+        <div class="images">
+          <img class="bread" src="/img/bread.png">
+        </div>
+        <div class="shadow"></div>
+      </div>
+    </div>
+
+  </body>
+</html>

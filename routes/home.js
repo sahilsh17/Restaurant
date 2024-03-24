@@ -1,5 +1,5 @@
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
@@ -7,26 +7,29 @@ module.exports = (db) => {
       .then(data => {
         const users = data.rows[0].name;
         const templateVars = {
-          username : users
+          username: users
         };
+        console.log('im here');
+
         res.render('home', templateVars);
       })
       .catch(err => {
         res
           .status(500)
           .json({ error: err.message });
+        console.log('im here');
       });
   });
 
   router.get("/login/:id", (req, res) => {
     req.session.user_id = req.params.id;
-      db.query('SELECT * FROM users;')
+    db.query('SELECT * FROM users;')
       .then(data => {
         const users = data.rows[0].name;
         const templateVars = {
-          username : users
+          username: users
         };
-        res.render("home",templateVars);
+        res.render("home", templateVars);
       })
       .catch(err => {
         res
@@ -43,11 +46,11 @@ module.exports = (db) => {
     res.render("register");
   });
 
-  router.post("/",(req, res) => {
+  router.post("/", (req, res) => {
     db.query('INSERT INTO orders (user_id) VALUES (1);')
-    .then(data => {
-      res.redirect('/menu');
-    });
+      .then(data => {
+        res.redirect('/menu');
+      });
   });
   return router;
 };
